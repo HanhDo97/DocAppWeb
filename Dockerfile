@@ -6,7 +6,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install -g @angular/cli
 RUN yarn install
 
-CMD [ "ng","serve","--host","0.0.0.0" ]
+CMD npm install -g @angular/cli && npm install && ng serve --host 0.0.0.0
