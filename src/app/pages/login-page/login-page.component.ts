@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-
+import { SocialButtonComponent } from '../../components/buttons/social-button/social-button.component';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [MatIconModule, MatFormFieldModule, FormsModule, MatCardModule, MatButtonModule, ReactiveFormsModule, MatInputModule],
+  imports: [SocialButtonComponent, MatIconModule, MatFormFieldModule, FormsModule, MatCardModule, MatButtonModule, ReactiveFormsModule, MatInputModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })

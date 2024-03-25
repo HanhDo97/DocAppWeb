@@ -1,5 +1,18 @@
 .login-component-wrapper {
     width: 100%;
     height: 100%;
-    margin-top: 5rem;
+    margin-top: 3rem;
+}
+
+#btn-sign-in {
+    color: white;
+    background-color: #03fca9;
+}
+
+.btn-action-login {
+    width: 40%;
+}
+
+.btn-social-login {
+    width: 35%;
 }
