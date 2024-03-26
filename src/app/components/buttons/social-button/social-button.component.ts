@@ -11,5 +11,5 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class SocialButtonComponent {
   @Input() name: string = "";
-  @Input() icon: string = "";
+  @Input() icon: string = ""; // icon bootstrap
 }
