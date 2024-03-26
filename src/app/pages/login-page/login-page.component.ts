@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, } from '@angular/material/snack-bar';
+import { AppService } from '../../services/app.service';
 
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -84,7 +85,6 @@ export class LoginPageComponent {
 
   changeAction() {
     this.checkFormValidOrNot();
-    console.log(this.shouldSignInBtnDisable)
   }
 
   checkFormValidOrNot() {

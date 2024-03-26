@@ -1,0 +1,22 @@
+.slide-banner-wrapper {
+    min-height: 500px;
+}
+
+.slide-banner-container {
+    min-height: 300px;
+    min-width: 200px;
+}
+
+.slide-text-content-1 {
+    font-size: 50px;
+    color: rgba(61, 68, 97, 0.10);
+}
+
+.slide-text-content-2 {
+    font-size: 50px;
+    color: #ff5851;
+}
+.slide-text-content-3 {
+    font-size: 50px;
+    color: #3d4461;
+}
