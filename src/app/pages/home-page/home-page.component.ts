@@ -27,7 +27,6 @@ export class HomePageComponent implements OnInit {
         }
       },
       error: (error) => {
-        console.log(error);
         this.router.navigate(['login']);
       }
     });

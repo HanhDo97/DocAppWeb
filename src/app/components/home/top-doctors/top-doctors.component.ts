@@ -25,6 +25,9 @@ export class TopDoctorsComponent implements OnInit {
     this.dataService.getTopDoctors().subscribe({
       next: (res) => {
         this.topDoctors = res.data;
+      },
+      error: (error) => {
+
       }
     });
   }
