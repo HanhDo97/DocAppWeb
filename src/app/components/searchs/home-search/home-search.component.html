@@ -1,0 +1,40 @@
+<div class="row d-flex justify-content-center mt-5">
+    <div class="row col-8 d-flex justify-content-center" style="min-height: 6rem;">
+        <div class="row col-11 search-box search-box-height p-0">
+            <div class="col-6">
+                <div class="search-box-wrapper">
+                    <div class="row">
+                        <h5 style="font-weight: 800;">Start Your Search</h5>
+                    </div>
+                    <div class="row mt-2">
+                        <form action="">
+                            <mat-form-field appearance="outline" class="w-75">
+                                <input type="text" matInput [formControl]="searchTextFormControl"
+                                    placeholder="Search doctors.">
+                            </mat-form-field>
+
+                            <button class="btn ms-3"><i class="bi bi-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 search-action search-box-height">
+                <div class="row">
+                    <div class="col-6">
+                        <img loading="lazy" src="{{searchImage}}" alt="">
+                    </div>
+                    <div class="col-6">
+                       <div class="search-action-text">
+                        Are You A Doctor?
+                        <br>
+                        Join Our Team
+                        <br>
+                        <app-action-button class="btn-join-us" name="Join us">
+                        </app-action-button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
