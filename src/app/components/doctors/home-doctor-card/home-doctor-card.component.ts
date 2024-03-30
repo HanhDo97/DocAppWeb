@@ -10,8 +10,8 @@ import { Doctor } from '../../../interfaces/doctor';
 })
 export class HomeDoctorCardComponent implements OnInit {
   @Input() doctor!: Doctor;
-  
+
   ngOnInit(): void {
   }
-  
+
 }
