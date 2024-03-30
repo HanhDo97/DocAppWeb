@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, } from '@angular/material/snack-bar';
 import { AppService } from '../../services/app.service';
+import { AuthService } from '../../services/auth.service';
 
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -36,7 +37,7 @@ export class LoginPageComponent {
   matcher = new MyErrorStateMatcher();
   shouldSignInBtnDisable: boolean = false;
 
-  constructor(private router: Router, private loginService: LoginService, private snackBar: MatSnackBar) {
+  constructor(private auth: AuthService,private router: Router, private loginService: LoginService, private snackBar: MatSnackBar) {
     this.changeAction()
     this.emailFormControl.valueChanges.subscribe(() => this.changeAction());
     this.passwordFormControl.valueChanges.subscribe(() => this.changeAction());
@@ -57,6 +58,7 @@ export class LoginPageComponent {
           this.shouldSignInBtnDisable = false;
         }
         else {
+          this.auth.setToken(res.token);
           this.router.navigate(['home']);
         }
       },

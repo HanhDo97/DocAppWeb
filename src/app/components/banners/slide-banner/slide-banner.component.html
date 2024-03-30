@@ -1,19 +1,31 @@
 <div class="row d-flex justify-content-center">
-    <div class="col-8 slide-banner-wrapper d-flex justify-content-center" id="slide-banner-wrapper"
-        [style.background-image]="'url(' + bannerImageUrl + ')'">
+    <div class="col-8 slide-banner-wrapper d-flex justify-content-between align-items-center" id="slide-banner-wrapper"
+        [style.background-image]="'url(' + bannerImageUrl + ')'" [style.padding]="0">
 
-        <div class="slide-banner-container d-flex align-items-center">
-            <img src="{{imageBannerUrl01}}" alt="" width="280px">
+        <div class="">
+            <button
+            [disabled]="leftButtonDisable"
+             (click)="previousSlide()" class="btn-slide-left btn-slide">Previous</button>
+        </div>
+
+        <div class="slide-banner-container d-flex align-items-center" [@slideAnimation]="currentSlideIndex">
+            <img [src]="getImageUrl()" alt="" width="280px">
             <p style="margin-left: 3rem;">
-                <span class="slide-text-content-1">01.</span>
+                <span class="slide-text-content-1">{{ slides[currentSlideIndex].number }}</span>
                 <br>
                 <span class="slide-text-content-2">Emergency?</span>
                 <br>
                 <span class="slide-text-content-3">Find Nearest</span>
                 <br>
                 <span class="slide-text-content-2">Medical Facility</span>
-                
             </p>
+        </div>
+
+
+
+
+        <div class="position-relative">
+            <button (click)="nextSlide()" class="btn-slide-right btn-slide">Next</button>
         </div>
     </div>
 </div>
