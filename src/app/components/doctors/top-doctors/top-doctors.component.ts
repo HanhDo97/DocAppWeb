@@ -3,6 +3,7 @@ import { HomeDoctorCardComponent } from '../home-doctor-card/home-doctor-card.co
 import { DataService } from '../../../services/data.service';
 import { Doctor } from '../../../interfaces/doctor';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TopDoctorsComponent implements OnInit {
   topDoctors: Array<Doctor> = [];
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -27,7 +28,7 @@ export class TopDoctorsComponent implements OnInit {
         this.topDoctors = res.data;
       },
       error: (error) => {
-
+       
       }
     });
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NavPageComponent } from '../../components/nav/nav-page/nav-page.component';
 import { SlideBannerComponent } from '../../components/banners/slide-banner/slide-banner.component';
 import { AuthService } from '../../services/auth.service';
@@ -16,34 +16,16 @@ import { HomeSearchComponent } from '../../components/searchs/home-search/home-s
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, AfterViewInit {
   apiUrl: string = environment.apiUrl;
-  token: string | null;
+  token: string | null = '';
 
   constructor(private auth: AuthService, private http: HttpClient, private router: Router) {
-    this.token = this.auth.getToken();
   }
+  ngAfterViewInit(): void {
+    
+  }
+
   ngOnInit(): void {
-    this.checkToken().subscribe({
-      next: (res) => {
-        if (parseInt(res.status) !== 200) {
-          this.router.navigate(['login']);
-        }
-      },
-      error: (error) => {
-        if(!this.token && error.status){
-          this.router.navigate(['login']);
-        }
-      }
-    });
-  }
-
-  checkToken(): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`
-    });
-
-    return this.http.get<any>(`${this.apiUrl}/user/me`, { headers });
-
   }
 }

@@ -7,10 +7,18 @@
             </div>
 
             <div class="col-6 d-flex justify-content-end align-items-center">
-                <div id="nav-menu" class="col-md-6 d-flex justify-content-around">
+                <div id="nav-menu" class="col-md-6 w-50 d-flex justify-content-between">
                     <a href="#">Doctors</a>
                     <a href="#">About</a>
-                    <a (click)="logout()">Logout</a>
+                    <div (click)="toggleUserMenu()" class="user-dropdown d-flex">
+                        <div class="user-image-container">
+                            <img class="user-image" src="{{userAvatar}}" alt="">
+                        </div>
+                        <div *ngIf="shouldDisplayUserMenu" class="dropdown-content">
+                            <a href="">General Information</a>
+                            <a (click)="logout()">Log out</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
