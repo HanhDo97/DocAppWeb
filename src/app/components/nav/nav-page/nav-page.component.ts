@@ -19,6 +19,7 @@ export class NavPageComponent implements OnInit {
   userName: string = '';
   apiUrl: string = environment.apiUrl;
   shouldDisplayUserMenu: boolean = false;
+  token: string | null = '';
 
   constructor(private router: Router, private http: HttpClient, private auth: AuthService, private elementRef: ElementRef, private renderer: Renderer2) { }
   ngOnInit(): void {
@@ -26,17 +27,18 @@ export class NavPageComponent implements OnInit {
       this.clickOutside(event);
     });
 
-    this.checkToken().subscribe({
-      next: (res) => {
-        this.userAvatar = res.data.user.image;
-        this.userName = res.data.user.name
-      },
-      error: (error) => {
-        if (error.status == 401) {
-          this.logout();
+    this.token = this.auth.getToken();
+
+    if (!this.token) {
+      this.getMe().subscribe({
+        next: (res) => {
+          this.userAvatar = res.data.user.image;
+          this.userName = res.data.user.name
+        },
+        error: (error) => {
         }
-      }
-    });
+      });
+    }
   }
 
   clickOutside(event: any) {
@@ -50,15 +52,12 @@ export class NavPageComponent implements OnInit {
     this.shouldDisplayUserMenu = !this.shouldDisplayUserMenu;
   }
 
-  checkToken(): Observable<any> {
-    const token = this.auth.getToken();
-
+  getMe(): Observable<any> {
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${this.token}`
     });
 
     return this.http.get<any>(`${this.apiUrl}/user/me`, { headers });
-
   }
 
   logout() {
