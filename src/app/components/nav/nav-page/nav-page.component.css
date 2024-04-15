@@ -28,20 +28,17 @@ a:hover {
 
 .user-image-container {
     background: #fff;
-    border-radius: 50%;
-    border: 1px solid #ddd;
     margin-right: 1rem;
     transition: all 0.2s ease-in-out;
 }
 
 .user-image-container:hover {
     cursor: pointer;
-    filter: brightness(90%);
 }
 
 .dropdown-content {
     top: 68px;
-    display: block;
+    display: none;
     position: absolute;
     background-color: #fff;
     min-width: 160px;
@@ -55,6 +52,11 @@ a:hover {
     height: 50px;
     width: 100%;
 }
-.dropdown-content a:hover{
+
+.dropdown-content a:hover {
     background-color: #ddd;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
 }

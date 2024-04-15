@@ -7,15 +7,15 @@
             </div>
 
             <div class="col-6 d-flex justify-content-end align-items-center">
-                <div id="nav-menu" class="col-md-6 w-50 d-flex justify-content-between">
+                <div id="nav-menu" class="col-md-6 w-50 h-100 d-flex justify-content-between">
                     <a href="#">Doctors</a>
                     <a href="#">About</a>
                     <a *ngIf="token == '' || token == null" href="/login">Sign in</a>
-                    <div *ngIf="token" (click)="toggleUserMenu()" class="user-dropdown d-flex">
-                        <div class="user-image-container">
+                    <div class="user-dropdown d-flex">
+                        <div class="user-image-container d-flex justify-content-center align-items-center">
                             <img class="user-image" src="{{userAvatar}}" alt="">
                         </div>
-                        <div *ngIf="shouldDisplayUserMenu" class="dropdown-content">
+                        <div class="dropdown-content">
                             <a href="">General Information</a>
                             <a (click)="logout()">Log out</a>
                         </div>

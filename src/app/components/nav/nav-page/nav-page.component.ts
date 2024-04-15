@@ -29,6 +29,7 @@ export class NavPageComponent implements OnInit {
 
     this.token = this.auth.getToken();
 
+    console.log(this.token);
     if (!this.token) {
       this.getMe().subscribe({
         next: (res) => {
